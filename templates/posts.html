@@ -1,14 +1,30 @@
 {% extends 'base.html'%}
 
 {% block head %} 
-<h1>Todos</h1>
+<h1 class="ui blue center aligned header">My Todo</h1>
 {% endblock %}
     
 {% block body %} 
-<table>
+
+
+<h3 class="ui orange left aligned header">Create Todo</h3>
+<form action="/posts" method="POST">
+    <div class="ui input focus">
+       <input type="text" name="title" placeholder="type title to do"><br>
+       <input type="text" name="content" placeholder="type content"><br>
+    </div>
+<button class="ui inverted pink button" type="submit">Save</button>
+
+</form>
+<hr>
+
+<table class= "ui blue table">
     <tr>
         <th>title</th>
         <th>content</th>
+        <th>Delete</th>
+        <th>Edit</th>
+
 
     </tr>
      
@@ -19,6 +35,16 @@
         </td>
         <td>
             {{ posts.content }}
+        </td>
+        <td>
+           
+            <a href='/posts/delete/{{posts.id}}' class="ui inverted red button">Delete</a>
+             
+        </td>
+        <td>
+           
+            <a href='/posts/edit/{{posts.id}}' class="ui inverted green button">Edit</a>
+
         </td>
       </tr> 
     {% endfor%}

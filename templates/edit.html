@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block head %} 
+<h3 class="ui orange left aligned header">Edit Todo</h3>
+{% endblock %}
+
+{% block body %} 
+<form action='/posts/edit/{{posts.id}}' method="POST">
+    <div class="ui input focus">
+    <input type="text" name="title" placeholder="type title to do" value="{{posts.title}}">
+    <input type="text" name="content" placeholder="type content" value="{{posts.content}}">
+    </div>
+    <button type="submit" class="ui blue button">Save</button>
+    
+</form>
+
+{% endblock %}
