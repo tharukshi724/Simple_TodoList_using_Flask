@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block head %} 
+<h1>Todos</h1>
+{% endblock %}
+    
+{% block body %} 
+<table>
+    <tr>
+        <th>title</th>
+        <th>content</th>
+
+    </tr>
+     
+    {% for posts in posts  %}
+     <tr>
+        <td>
+            {{ posts.title }}
+        </td>
+        <td>
+            {{ posts.content }}
+        </td>
+      </tr> 
+    {% endfor%}
+</table>
+{% endblock %}
